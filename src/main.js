@@ -5,13 +5,14 @@ const url = require('url');
 let win;
 let addWindow;
   
-  function createWindow () {
-    // Create the browser window.
-    win = new BrowserWindow({ width: 800, height: 600 })
+function createWindow () {
+  // Create the browser window.
+	win = new BrowserWindow({ width: 800, height: 600 })
   	var python = require('child_process').spawn('python',['./helloworld.py']);
   	python.stdout.on('data', function(data) {
   		console.log("data: ", data.toString('utf8'));
   	})
+
     //and load the index.html of the app.
     win.loadURL(url.format({
     	pathname: path.join(__dirname, 'index.html'),
@@ -27,13 +28,13 @@ let addWindow;
     // win.webContents.openDevTools();
 
     win.on('closed', () => {
-    	win = null;
+    	app.quit();
     })
-  }
+}
   
 
 
-  const mainMenuTemplate = [
+const mainMenuTemplate = [
   {
   	label: 'File',
   	submenu:[
@@ -56,19 +57,27 @@ let addWindow;
   	}
   	]
   }
-  ];
-  //create window
-  app.on('ready', createWindow)
+];
 
-  function createAddWindow() {
-	addWindow = new BrowserWindow({ width: 200, height: 300, title: 'Add New Exam' })
-	addWindow.loadURL(url.format({
-    	pathname: path.join(__dirname, 'AddExam.html'),
-    	protocol: 'file:',
-    	slashes: true
-    }));
 
-  }
+
+	//create window
+	app.on('ready', createWindow)
+
+	function createAddWindow() {
+		addWindow = win;
+		addWindow.loadURL(url.format({
+    		pathname: path.join(__dirname, 'AddExam.html'),
+    		protocol: 'file:',
+    		slashes: true
+	}));
+
+    //garbage collection
+	addWindow.on('close', function() {
+   		addWindow = null;
+	});
+
+}
 
   //quit when all windows are closed
   app.on('window-all-closed', () => {
@@ -76,3 +85,26 @@ let addWindow;
   		app.quit();
   	}
   });
+
+  // if (process.env.NODE_ENV !== 'production') {
+  // 	mainMenuTemplate.push({
+  // 		label: 'Developer Tools',
+  // 		submenu: [
+  // 			{
+  // 				label: 'Toggle DevTools',
+  // 				accelerator: process.platform == 'darwin' ? 'Command+I' :
+  // 				'Ctrl+I',
+  // 				click(item, focusedWindow) {
+  // 					focusWindow.toggleDevTools();
+  // 				}
+  // 			},
+  // 			{
+  // 				role: 'reload'
+  // 			}
+  // 		]
+  // 	})
+  // }
+ // if mac, add empty object to menu
+if (process.platform == 'darwin') {
+	mainMenuTemplate.unshift({}); //adds to the beginning of the menu array
+}
