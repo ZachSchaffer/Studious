@@ -5,6 +5,7 @@ from pdfminer.layout import LAParams
 
 from io import StringIO
 import json
+import os
 def pdf_to_text(pdfname):
 
     # PDFMiner boilerplate
@@ -32,7 +33,14 @@ def pdf_to_text(pdfname):
 
 
 topicsJson = None
-text = pdf_to_text("./testPDF0.pdf")
+text = ""
+items = os.listdir('./input')
+for names in items:
+    if names.endswith('.txt'):
+        text+=open("./input/"+names,"r").read()
+
+    if names.endswith('.pdf'):
+        text+=pdf_to_text("./input/"+names)
 
 def stringMatch(topic, body):
     topicsJson[topic]['count'] = 0
