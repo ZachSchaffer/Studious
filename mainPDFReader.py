@@ -31,15 +31,18 @@ def pdf_to_text(pdfname):
     return text
 
 
-
-text = pdf_to_text("./testPDF0.pdf")
 topicsJson = None
+text = pdf_to_text("./testPDF0.pdf")
+
+def stringMatch(topic, body):
+    topicsJson[topic]['count'] = 0
+    for word in topicsJson[topic]['words']:
+        topicsJson[topic]['count']+=body.count(word)
+
 with open('data.json','r') as studyGuide:
     topicsJson = json.load(studyGuide)
 for x in topicsJson:
-    print(x)
-    print(topicsJson[x])
-    topicsJson[x]['count']+=1
+    stringMatch(x, text)
 with open('data.json', 'w') as outfile:
     json.dump(topicsJson, outfile)
 
