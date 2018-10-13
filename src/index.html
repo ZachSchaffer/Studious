@@ -1,15 +1,22 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <!-- <meta charset="utf-8"> -->
+      <meta charset="utf-8">
       <title>Studious</title>
-      <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css" >
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+         <link rel="stylesheet" href="hover-button/css/style.css">
     </head>
     <body>
       <div class="container">
         <h1>No</h1>
         <div id="output"></div>
       </div>
+
+      <button class="Button js-button">Hover over me</button>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js'></script>
+        <script  src="js/index.js"></script>
+
     </body>
     <script>
       console.log(process);
@@ -25,4 +32,5 @@
     <script>
       require('./renderer.js');
     </script>
+    <button class="Button js-button"> Create New Study Plan</button>
   </html>

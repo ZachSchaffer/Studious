@@ -3,7 +3,7 @@ const path = require('path');
 const url = require('url');
 
 let win;
-let addWindow;
+let pdfUploadWindow;
   
 function createWindow () {
   // Create the browser window.
@@ -39,9 +39,9 @@ const mainMenuTemplate = [
   	label: 'File',
   	submenu:[
   		{
-  			label: 'Add New Exam',
+  			label: 'Open Past Study Plan',
   			click(){
-  				createAddWindow();
+  				//load study plan
   			}
   		},
   	{
@@ -64,17 +64,17 @@ const mainMenuTemplate = [
 	//create window
 	app.on('ready', createWindow)
 
-	function createAddWindow() {
-		addWindow = win;
-		addWindow.loadURL(url.format({
+	function switchToPDFUploadWindow() {
+		pdfUploadWindow = win;
+		pdfUploadWindow.loadURL(url.format({
     		pathname: path.join(__dirname, 'AddExam.html'),
     		protocol: 'file:',
     		slashes: true
 	}));
 
     //garbage collection
-	addWindow.on('close', function() {
-   		addWindow = null;
+	pdfUploadWindow.on('close', function() {
+   		pdfUploadWindow = null;
 	});
 
 }
@@ -85,25 +85,7 @@ const mainMenuTemplate = [
   		app.quit();
   	}
   });
-
-  // if (process.env.NODE_ENV !== 'production') {
-  // 	mainMenuTemplate.push({
-  // 		label: 'Developer Tools',
-  // 		submenu: [
-  // 			{
-  // 				label: 'Toggle DevTools',
-  // 				accelerator: process.platform == 'darwin' ? 'Command+I' :
-  // 				'Ctrl+I',
-  // 				click(item, focusedWindow) {
-  // 					focusWindow.toggleDevTools();
-  // 				}
-  // 			},
-  // 			{
-  // 				role: 'reload'
-  // 			}
-  // 		]
-  // 	})
-  // }
+  
  // if mac, add empty object to menu
 if (process.platform == 'darwin') {
 	mainMenuTemplate.unshift({}); //adds to the beginning of the menu array
