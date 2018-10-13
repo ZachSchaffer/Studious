@@ -1,0 +1,9 @@
+ body {
+    padding: 40px 0 0;
+    background: #fafafa;
+    text-align: center;
+}
+
+button.mdl-button {
+  margin: 30px;
+}
