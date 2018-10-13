@@ -2,12 +2,20 @@
   <html>
     <head>
       <meta charset="UTF-8">
-      <title>Hello World!</title>
+      <title>Studious</title>
+      <link rel = "stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
     </head>
     <body>
-      <h1>Hello World!</h1>
-      We are using node <script>document.write(process.versions.node)</script>,
-      Chrome <script>document.write(process.versions.chrome)</script>,
-      and Electron <script>document.write(process.versions.electron)</script>.
+      <div class="container">
+        <h1>Hello World!</h1>
+        <div id="output"></div>
+      </div>
     </body>
+    <script>
+      // console.log(process);
+      // let output = `
+    </script>
+    <script>
+      require('./renderer.js');
+    </script>
   </html>

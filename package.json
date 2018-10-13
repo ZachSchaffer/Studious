@@ -1,0 +1,22 @@
+{
+  "name": "studious",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZachSchaffer/Studious.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZachSchaffer/Studious/issues"
+  },
+  "homepage": "https://github.com/ZachSchaffer/Studious#readme",
+  "devDependencies": {
+    "electron": "^3.0.4"
+  }
+}
