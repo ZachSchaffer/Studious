@@ -12,8 +12,15 @@
       </div>
     </body>
     <script>
-      // console.log(process);
-      // let output = `
+      console.log(process);
+      let output = `
+        <h2 class="page-header"> App Version Data</h2>
+        <u1 class="list-group">
+          <li class="list-group-item">Node: ${process.versions.node}<li>
+        </ul>
+      `;
+      document.getElementById('output').innerHTML = output;
+
     </script>
     <script>
       require('./renderer.js');
