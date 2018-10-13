@@ -4,7 +4,7 @@ from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 
 from io import StringIO
-
+import json
 def pdf_to_text(pdfname):
 
     # PDFMiner boilerplate
@@ -30,4 +30,18 @@ def pdf_to_text(pdfname):
 
     return text
 
-print(pdf_to_text("./testPDF0.pdf"))
+
+
+text = pdf_to_text("./testPDF0.pdf")
+topicsJson = None
+with open('data.json','r') as studyGuide:
+    topicsJson = json.load(studyGuide)
+for x in topicsJson:
+    print(x)
+    print(topicsJson[x])
+    topicsJson[x]['count']+=1
+with open('data.json', 'w') as outfile:
+    json.dump(topicsJson, outfile)
+
+
+
