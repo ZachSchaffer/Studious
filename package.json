@@ -1,0 +1,14 @@
+{
+  "name": "package1",
+  "version": "1.0.0",
+  "description": "test description",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Austin Geannopoulos",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^3.0.4"
+  }
+}

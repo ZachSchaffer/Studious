@@ -1,0 +1,102 @@
+@import "compass/css3";
+
+body {
+  background: #222;
+}
+
+a {
+  text-decoration: none;
+  @include transition( all 200ms ease-in );
+}
+
+.lin-t {
+	  @include transition( all 300ms linear );
+}
+
+.button {
+	  font-family: 'Aldrich', sans-serif;
+	  text-align: center;
+	  padding: 10px 10px;
+	  color: white;
+	  text-transform: uppercase;
+}
+
+.welcome-button {
+	  position: fixed;
+	  top: 40%;
+	  left: 50%;
+	  margin-left: -78px;
+	  @include transition( all 600ms ease-in );
+
+	  a {
+		    line-height: 30px;
+		    @include opacity( 1 );
+		    @include transition( all 600ms ease-in );
+
+		  &.out {
+			    @include opacity( 0 );
+	  	}
+	}
+
+	  &.out {
+		    @include opacity( 0 );
+	  }
+    
+}
+
+[class*='bt-slider-'] {
+	  left: 100%;
+	  position: absolute;
+	  height: 100%;
+	  border-left: 1px solid white;
+	  z-index: 1000;
+	  @include opacity( 1 );
+
+	  &.out {
+		    @include opacity( 0 );
+	  }
+}
+
+.bt-slide-l {
+  left: 0;
+}
+
+.bt-slider-0 { @include transition( all 200ms ease-in ); }
+.bt-slider-1 { @include transition( all 800ms ease-in ); }
+.bt-slider-2 { @include transition( all 300ms ease-in ); }
+.bt-slider-3 { @include transition( all 500ms ease-in ); }
+.bt-slider-4 { @include transition( all 1000ms ease-in ); }
+
+.bt-sl-solid-l {
+	  position: absolute;
+	  left: 0;
+	  height: 100%;
+	  border-left: 2px solid orange;
+	  z-index: 1001;
+	  @include transition( all 500ms ease-in-out );
+
+	  &.out {
+		    left: 50%;
+	  }
+
+	  &.down {
+		    height: 0%;
+	  }
+}
+
+.bt-sl-solid-r {
+	  position: absolute;
+	  right: -1px;
+	  height: 100%;
+	  border-left: 2px solid orange;
+	  z-index: 1001;
+	  @include transition( all 500ms ease-in-out );
+
+	  &.out {
+		    right: 50%;
+	  }
+
+	  &.down {
+		    height: 0%;
+	  }
+}
