@@ -1,35 +1,79 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <meta charset="utf-8">
-      <title>Studious</title>
-      <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-         <link rel="stylesheet" href="hover-button/css/style.css">
+      <meta charset="UTF-8">
+      <title>Hello World!</title>
+
+  <link rel="stylesheet" href="ui elements/style-global.css">
+
     </head>
     <body>
-      <div class="container">
-        <h1>No</h1>
-        <div id="output"></div>
-      </div>
 
-      <button class="Button js-button">Hover over me</button>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js'></script>
-        <script  src="hover-button/js/index.js"></script>
+      <h1>Hello World!</h1>
+      We are using node <script>document.write(process.versions.node)</script>,
+      Chrome <script>document.write(process.versions.chrome)</script>,
+      and Electron <script>document.write(process.versions.electron)</script>
 
+     
     </body>
-    <script>
-      console.log(process);
-      let output = `
-        <h2 class="page-header"> App Version Data</h2>
-        <u1 class="list-group">
-          <li class="list-group-item">Node: ${process.versions.node}<li>
-        </ul>
-      `;
-      document.getElementById('output').innerHTML = output;
 
-    </script>
-    <script>
-      require('./renderer.js');
-    </script>
+<body>
+
+  <html>
+  <head>
+    <!-- Material Design Lite -->
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+
+    <script src=code.js></script>
+    <script src=main.js></script>
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+  <body>
+    <!-- Colored FAB button
+    <button class="mdl-button mdl-js-button mdl-button--fab">
+      <i class="material-icons">add</i>
+    </button> -->
+    <!-- Colored FAB button with ripple 
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+      <i class="material-icons">add</i>
+    </button> -->
+    
+    <hr>
+    
+    <!-- Accent-colored raised button with ripple -->
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" onclick="switchToPDFUploadWindow()">
+     My Button :)
+    </button>
+    
+
+    <!-- Colored raised button 
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+      Button
+    </button> -->
+    
+    <!-- Flat button 
+    <button class="mdl-button mdl-js-button">
+  Flat Button
+</button> -->
+    
+    <hr>
+    
+    <!-- Icon button 
+    <button class="mdl-button mdl-js-button mdl-button--icon">
+      <i class="material-icons">mood</i>
+    </button> -->
+    <!-- Colored icon button 
+    <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+      <i class="material-icons">mood</i>
+    </button> -->
+
+  </body>
+</html>
+  
+  
+
+</body>
+
   </html>
