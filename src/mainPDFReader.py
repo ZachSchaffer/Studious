@@ -35,14 +35,14 @@ def pdf_to_text(pdfname):
 topicsJson = None
 text = ""
 
-items = os.listdir('./input')
+items = os.listdir('./input/')
 for names in items:
     if names.endswith('.txt'):
-        text+=open("./input"+names,"r").read()
+        text+=open("./input/"+names,"r").read()
     if names.endswith('.pdf'):
-        text+=pdf_to_text("./input"+names)
+        text+=pdf_to_text("./input/"+names)
     if names.endswith('.html'):
-        text+=open("./input"+names,"r").read()
+        text+=open("./input/"+names,"r").read()
 
 def stringMatch(topic, body):
     topicsJson[topic]['count'] = 0
