@@ -38,14 +38,15 @@ items = os.listdir('./input')
 for names in items:
     if names.endswith('.txt'):
         text+=open("./input/"+names,"r").read()
-
     if names.endswith('.pdf'):
         text+=pdf_to_text("./input/"+names)
+    if names.endswith('.html'):
+        text+=open("./input/"+names,"r").read()
 
 def stringMatch(topic, body):
     topicsJson[topic]['count'] = 0
     for word in topicsJson[topic]['words']:
-        topicsJson[topic]['count']+=body.count(word)
+        topicsJson[topic]['count']+=body.upper().count(word.upper())
 
 with open('data.json','r') as studyGuide:
     topicsJson = json.load(studyGuide)
