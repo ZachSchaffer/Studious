@@ -1,61 +1,4 @@
-function MyFunction(){
-	var app = require('electron').remote; 
-	var dialog = app.dialog;
-	var fs = require('fs');
-
-	dialog.showOpenDialog((fileNames) => {
-    // fileNames is an array that contains all the selected
-    if(fileNames === undefined){
-        console.log("No file selected");
-        return;
-    }
-
-    fs.readFile(filepath, 'utf-8', (err, data) => {
-        if(err){
-            alert("An error ocurred reading the file :" + err.message);
-            return;
-        }
-
-        // Change how to handle the file content
-        console.log("The file content is : " + data);
-    });
-});
- 
-
-// Note that the previous example will handle only 1 file, if you want that the dialog accepts multiple files, then change the settings:
-// And obviously , loop through the fileNames and read every file manually
-dialog.showOpenDialog({ 
-    properties: [ 
-        'openFile', 'multiSelections', (fileNames) => {
-            console.log(fileNames);
-        }
-    ]
-});
- 
-
-// Note that the previous example will handle only 1 file, if you want that the dialog accepts multiple files, then change the settings:
-// And obviously , loop through the fileNames and read every file manually
-/*dialog.showOpenDialog({ 
-    properties: [ 
-        'openFile', 'multiSelections', (fileNames) => {
-            console.log(fileNames);
-        }
-    ]
-});*/
-
-}
-
-function test(x){
-	console.log(x);
-}
-
-function addJsonNode(name){
-	console.log(name);
-}
-
-function graphTime(){
-    document.getElementById('slide4').scrollIntoView();
-    var dataset = [1, 1, 1, 1, 1, 1, 6, 1, 1, 1]; //change to show different data
+var dataset = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 
 // let colors = ['#8dd3c7', '#ffffb3', '#bebada', '#fb8072', '#80b1d3', '#fdb462', '#b3de69', '#fccde5', '#d9d9d9', '#bc80bd'];
 // let colors = ['#67001f', '#b2182b', '#d6604d', '#f4a582', '#fddbc7', '#e0e0e0', '#bababa', '#878787', '#4d4d4d', '#1a1a1a'];
@@ -154,7 +97,7 @@ var draw = function draw() {
   attr('transform', function (d) {
     // calculate outerArc centroid for 'this' slice
     var pos = outerArc.centroid(d);
-    // define left and right alignment of text labels                           
+    // define left and right alignment of text labels 							
     pos[0] = radius * (midAngle(d) < Math.PI ? 1 : -1);
     return 'translate(' + pos + ')';
   }).
@@ -198,4 +141,3 @@ var replay = function replay() {
   setTimeout(draw, 800);
 
 };
-}
