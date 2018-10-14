@@ -2,7 +2,7 @@ from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter#process_pd
 from pdfminer.pdfpage import PDFPage
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
-
+import sys
 from io import StringIO
 import json
 import os
@@ -34,14 +34,15 @@ def pdf_to_text(pdfname):
 
 topicsJson = None
 text = ""
-items = os.listdir('./input')
+
+items = sys.argv
 for names in items:
     if names.endswith('.txt'):
-        text+=open("./input/"+names,"r").read()
+        text+=open(names,"r").read()
     if names.endswith('.pdf'):
-        text+=pdf_to_text("./input/"+names)
+        text+=pdf_to_text(names)
     if names.endswith('.html'):
-        text+=open("./input/"+names,"r").read()
+        text+=open(names,"r").read()
 
 def stringMatch(topic, body):
     topicsJson[topic]['count'] = 0
