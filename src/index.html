@@ -8,6 +8,8 @@
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+
  <link rel="stylesheet" href="css/style.css"/>
  <!-- <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> -->
  <link href='http://fonts.googleapis.com/css?family=Wellfleet' rel='stylesheet' type='text/css'>
@@ -16,9 +18,7 @@
  <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'> 
  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
  <link href='http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911' rel='stylesheet' type='text/css'>
- <script>
- </script>
-
+ <link rel="stylesheet" href="ui elements/wow another button/css/style.css">
     </head>
     
 <body scroll="no" style="overflow: hidden">
@@ -26,9 +26,9 @@
 
 <div id="slide1">
  <div class="content">
- <h2>Welcome</h2>
- <h1>Let's make a Study Plan</h1>
-     <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" onclick="document.getElementById('slide2').scrollIntoView();">
+ <h2 style="font-family: 'Dosis', sans-serif;">Welcome</h2>
+ <h1 style="font-family: 'Dosis', sans-serif;">Let's make a Study Plan</h1>
+     <button style="font-family: 'Dosis', sans-serif;" class="newbutton" onclick="document.getElementById('slide2').scrollIntoView();">
      Start a Study Plan
     </button>
  </div> 
@@ -37,12 +37,19 @@
 
 <div id="slide2">
 <script src=code.js></script>
- <h1>Tell Us A Topic To Look For</h1>
-  <form>
-  Topic Name:<br>
-  <input type="text" id='topic' name="topicName"><br>
-</form> 
- <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" onclick="addJsonNode(document.getElementById(
+ <h1 style="font-family: 'Dosis', sans-serif;">Tell Us A Topic To Look For</h1>
+  <style>
+  input[type=text] {
+    padding:5px; 
+    border-color: #2a1851; 
+    border-radius:9px;
+    outline:none;
+    font: inherit;
+}
+</style>
+  <input placeholder='Enter Topic' type="text" id='topic' name="topicName"><br>
+ 
+ <button style="font-family: 'Dosis', sans-serif;" class="newbutton" onclick="addJsonNode(document.getElementById(
 'topic').value)">
      Submit
     </button>
@@ -58,16 +65,25 @@
 
  <div id="slide3">
 
- <h1>Add the relevant keywords to the topics</h1>
- <h3>Enter as words separated by commas</h3>
-<input type="text" id='keyword' name="topicName"><br>
- <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" onclick="addJsonProperty(document.getElementById(
+ <h1 style="font-family: 'Dosis', sans-serif;">Add the relevant keywords to the topics</h1>
+ <h3 style="font-family: 'Dosis', sans-serif;">Enter as words separated by commas</h3>
+ <style>
+  input[type=text] {
+    padding:5px; 
+    border-color: #2a1851; 
+    border-radius:9px;
+    outline:none;
+    font: inherit;
+}
+</style>
+<input placeholder='Enter Keywords' type="text" id='keyword' name="topicName"><br>
+ <button style="font-family: 'Dosis', sans-serif;" class="newbutton" onclick="addJsonProperty(document.getElementById(
 'topic').value,document.getElementById('keyword').value)">
-     Submit A Keyword
+     Submit Keywords
     </button>
-     <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" onclick="addAnother()">Add Another topic</button><br>
+     <button style="font-family: 'Dosis', sans-serif;" class="newbutton" onclick="addAnother()">Add Another topic</button><br>
 
-     <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" onclick="beginScan()">Scan Documents and Find out what to study</button>
+     <button style="font-family: 'Dosis', sans-serif;" class="newbutton" onclick="beginScan()">Scan Documents and Find out what to study</button>
 
  </div> 
  </div> 
@@ -79,7 +95,7 @@
 
 
  <div id="slide4">
- <h3>What to study:</h3>
+ <h3 style="font-family: 'Dosis', sans-serif;">What to study:</h3>
  <!--pie chart stylesheet-->
 <link rel="stylesheet" href="css/style.css">
 

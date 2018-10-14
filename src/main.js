@@ -14,8 +14,10 @@ var fs = require('fs');
     win.loadFile('index.html')
   
     // Open the DevTools.
-    win.webContents.openDevTools()
-  
+    // win.webContents.openDevTools()
+  	
+  	//hide menu bar
+  	win.setMenu(null)
     // Emitted when the window is closed.
     win.on('closed', () => {
       // Dereference the window object, usually you would store windows
