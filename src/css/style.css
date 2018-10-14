@@ -36,13 +36,6 @@ position: relative;
 .content{ margin: 0 auto; width: 960px; }
 .clear { clear: both; }
 
-#header {
-width: 100%;
-background: url('../img/header-bg.png');
-height: 80px;
-position: fixed;
-margin-top: 30px;
-}
 #nav { width: 410px; float: right; margin-top: 20px; }
 #logo a { color: #fff; text-decoration: none; float: left; font-size: 30px; margin-top: 20px; color: #fff; font-family:"Wellfleet"; font-weight: bold; }
 #nav ul{
@@ -111,5 +104,9 @@ background-size: cover;
 
 html {
   scroll-behavior: smooth;
+}
+
+textarea {
+	resize: none;
 }
 
