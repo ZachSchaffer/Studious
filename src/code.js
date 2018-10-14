@@ -90,35 +90,23 @@ function addAnother(){
 }
 
 function beginScan(){
-	var python = require('child_process').spawn('python',['./mainPDFReader.py']);
+	var python = require('child_process').spawn('python3',['./mainPDFReader.py']);
       python.stdout.on('data', function(data) {
-          console.log("data: ", data.toString('utf8'));
-      })
+          var fs = require('fs');
 
-      graphTime();
-
-      document.getElementById('slide4').scrollIntoView();	
-
-}
-
-
-
-function graphTime(){
-	var fs = require('fs');
 	var json = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+	console.log(json);
 
 	let arrData = [];
 	let arrNames = [];
 
-	for(var topic in json){
-		arrNames.push(topic.constructor.name);
-		arrData.push(topic.count);
-	}
+	Object.keys(json).forEach(function(key,index) {
+    arrData.push(json[key].count);
+    arrNames.push(key);
+});
+    
+    var dataset =  arrData;//change to show different data
 
-    document.getElementById('slide4').scrollIntoView();
-    //var dataset =  arrData;//change to show different data
-    console.log(arrData);
-    var dataset = arrData;
 // let colors = ['#8dd3c7', '#ffffb3', '#bebada', '#fb8072', '#80b1d3', '#fdb462', '#b3de69', '#fccde5', '#d9d9d9', '#bc80bd'];
 // let colors = ['#67001f', '#b2182b', '#d6604d', '#f4a582', '#fddbc7', '#e0e0e0', '#bababa', '#878787', '#4d4d4d', '#1a1a1a'];
 var colors = ['#9e0142', '#d53e4f', '#f46d43', '#fdae61', '#fee08b', '#e6f598', '#abdda4', '#66c2a5', '#3288bd', '#5e4fa2'];
@@ -212,7 +200,7 @@ var draw = function draw() {
   attr('dy', '0.35em').
   style("opacity", 0).
   style('fill', function (d, i) {return colors[i];}).
-  text(function (d, i) {return colors[i];}).
+  text(function (d, i) {return arrNames[i];}).
   attr('transform', function (d) {
     // calculate outerArc centroid for 'this' slice
     var pos = outerArc.centroid(d);
@@ -260,4 +248,9 @@ var replay = function replay() {
   setTimeout(draw, 800);
 
 };
+      })
+
+
+      document.getElementById('slide4').scrollIntoView();	
+
 }
