@@ -47,14 +47,13 @@ for names in items:
 def stringMatch(topic, body):
     topicsJson[topic]['count'] = 0
     for word in topicsJson[topic]['words']:
-        print(word)
+        #print(word)
         topicsJson[topic]['count']+=body.upper().count(word.upper())
-print(text)
+#print(text)
 with open('data.json','r') as studyGuide:
     topicsJson = json.load(studyGuide)
 for x in topicsJson:
     stringMatch(x, text)
 with open('data.json', 'w') as outfile:
     json.dump(topicsJson, outfile)
-print(text)
-
+print("done")

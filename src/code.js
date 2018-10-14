@@ -91,9 +91,11 @@ function addAnother(){
 
 function beginScan(){
 	var python = require('child_process').spawn('python3',['./mainPDFReader.py']);
-      python.stdout.on('data', function(data) {
-          var fs = require('fs');
+      python.stdout.on('data', async function(data) {
+        
+      	await sleep(5000);
 
+  var fs = require('fs');
 	var json = JSON.parse(fs.readFileSync('data.json', 'utf8'));
 	console.log(json);
 
@@ -143,20 +145,15 @@ svg.attr({
 
 
 // for drawing slices
-var arc = d3.svg.arc().
-outerRadius(radius * 0.6).
-innerRadius(radius * 0.45);
+var arc = d3.svg.arc().outerRadius(radius * 0.6).innerRadius(radius * 0.45);
 
 // for labels and polylines
-var outerArc = d3.svg.arc().
-innerRadius(radius * 0.85).
-outerRadius(radius * 0.85);
+var outerArc = d3.svg.arc().innerRadius(radius * 0.85).outerRadius(radius * 0.85);
 
 // d3 color generator
 // let c10 = d3.scale.category10();
 
-var pie = d3.layout.pie().
-value(function (d) {return d;});
+var pie = d3.layout.pie().value(function (d) {return d;});
 
 var draw = function draw() {
 
@@ -237,20 +234,10 @@ var draw = function draw() {
 
 draw();
 
-var button = document.querySelector('button');
+document.getElementById('slide4').scrollIntoView();
 
-var replay = function replay() {
+});}
 
-  d3.selectAll('.slices').transition().ease('back').duration(500).delay(0).style('opacity', 0).attr('transform', 'translate(0, 250)').remove();
-  d3.selectAll('.lines').transition().ease('back').duration(500).delay(100).style('opacity', 0).attr('transform', 'translate(0, 250)').remove();
-  d3.selectAll('.labels').transition().ease('back').duration(500).delay(200).style('opacity', 0).attr('transform', 'translate(0, 250)').remove();
-
-  setTimeout(draw, 800);
-
-};
-      })
-
-
-      document.getElementById('slide4').scrollIntoView();	
-
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
