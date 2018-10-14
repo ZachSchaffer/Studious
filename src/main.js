@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron')
 const document = require('electron')
+var fs = require('fs');
   
   // Keep a global reference of the window object, if you don't, the window will
   // be closed automatically when the JavaScript object is garbage collected.
@@ -45,6 +46,13 @@ const document = require('electron')
       createWindow()
     }
   })
+
+  fs.writeFile('data.json', "{}", (err) => {
+        if(err){
+            alert("An error ocurred creating the file "+ err.message)
+        }
+                    
+    });
   
   // In this file you can include the rest of your app's specific main process
   // code. You can also put them in separate files and require them here.
