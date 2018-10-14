@@ -50,6 +50,6 @@ function test(x){
 }
 
 function addJsonNode(name){
-
+	console.log(name);
 }
 

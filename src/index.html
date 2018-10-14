@@ -37,7 +37,12 @@
  
 <script src=code.js></script>
  <h1>Tell Us What Topics To Look For</h1>
- <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" onclick="MyFunction()">
+  <form>
+  Topic Name:<br>
+  <input type="text" name="topicName"><br>
+</form> 
+ <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" onclick="addJsonNode(document.getElementById(
+'topic').text)">
      Submit
     </button>
 <script src=code.js></script>
